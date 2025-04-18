@@ -1,4 +1,4 @@
-package com.medicine.app
+package com.aroundpharmacy.app
 
 import org.junit.Test
 

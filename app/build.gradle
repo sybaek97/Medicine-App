@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.medicine.app'
+    namespace 'com.aroundpharmacy.app'
     compileSdk 35
 
     defaultConfig {
-        applicationId "com.medicine.app"
+        applicationId "com.aroundpharmacy.app"
         minSdk 28
         targetSdk 35
         versionCode 1
