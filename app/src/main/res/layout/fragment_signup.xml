@@ -27,6 +27,7 @@
             app:layout_constraintTop_toTopOf="parent"
             />
 
+
         <LinearLayout
             android:layout_marginTop="50dp"
             android:id="@+id/txt_login"
@@ -43,7 +44,7 @@
                 style="@style/txt_big"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="로그인"
+                android:text="회원가입"
                 android:textColor="@color/main"
                 android:textSize="30sp" />
 
@@ -52,13 +53,12 @@
                 android:layout_marginTop="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="이메일과 비밀번호를 입력해주세요"
+                android:text="상세정보를 입력해주세요"
                 android:textColor="@color/main"
                 android:textSize="15sp" />
         </LinearLayout>
 
         <ScrollView
-            android:layout_marginTop="50dp"
             android:id="@+id/scroll_login"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -67,6 +67,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txt_login">
 
+            <!-- LinearLayout으로 변경 -->
             <LinearLayout
                 android:id="@+id/box_login"
                 android:layout_width="match_parent"
@@ -83,7 +84,15 @@
                     android:hint="이메일"
                     android:inputType="textEmailAddress"
                     android:textColorHint="@color/sub_gray" />
-
+                <EditText
+                    android:id="@+id/edit_adress"
+                    style="@style/edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginBottom="20dp"
+                    android:hint="주소"
+                    android:inputType="textPostalAddress"
+                    android:textColorHint="@color/sub_gray" />
                 <EditText
                     android:id="@+id/edit_pw"
                     style="@style/edit_text"
@@ -92,25 +101,25 @@
                     android:hint="비밀번호"
                     android:inputType="textPassword"
                     android:textColorHint="@color/sub_gray" />
-
+                <EditText
+                    android:id="@+id/edit_pw_check"
+                    style="@style/edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="30dp"
+                    android:hint="비밀번호 확인"
+                    android:inputType="textPassword"
+                    android:textColorHint="@color/sub_gray" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_login"
-                    style="@style/button_text"
-                    android:layout_width="match_parent"
-                    android:layout_marginTop="50dp"
-                    android:text="로그인"
-                    android:textColor="@color/white" />
-
-                <TextView
-                    android:clickable="true"
                     android:id="@+id/btn_signup"
                     style="@style/button_text"
                     android:layout_width="match_parent"
-                    android:layout_marginTop="20dp"
-                    android:backgroundTint="#00DEDEDE"
+                    android:layout_marginTop="50dp"
                     android:text="회원가입"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/white" />
+
+
 
             </LinearLayout>
         </ScrollView>
