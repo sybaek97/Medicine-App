@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/aroundPharmacyFragment"
+        android:title="약국 찾기"
+        android:icon="@drawable/icon_location" />
+    <item
+        android:id="@+id/pharmacySearchFragment"
+        android:title="약 검색"
+        android:icon="@drawable/icon_pharmacy" />
+    <item
+        android:id="@+id/mypageFragment"
+        android:title="마이페이지"
+        android:icon="@drawable/icon_mypage" />
+</menu>

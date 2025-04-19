@@ -5,12 +5,13 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="testRunner" value="CHOOSE_PER_TEST" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/../../../개인/android/MedicineApp" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/../../../개인/android/MedicineApp" />
-            <option value="$PROJECT_DIR$/../../../개인/android/MedicineApp/app" />
+            <option value="$PROJECT_DIR$/../../../개인/android/AroundPharmacy" />
+            <option value="$PROJECT_DIR$/../../../개인/android/AroundPharmacy/app" />
+            <option value="$PROJECT_DIR$/../../../개인/android/AroundPharmacy/firebaseAuth" />
           </set>
         </option>
         <option name="resolveExternalAnnotations" value="false" />

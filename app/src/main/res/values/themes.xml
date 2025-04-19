@@ -1,9 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.MedicineApp" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.AroundPharmacy" parent="Theme.Material3.DayNight.NoActionBar">
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
-    <style name="Theme.MedicineApp" parent="Base.Theme.MedicineApp" />
+    <style name="Theme.AroundPharmacy" parent="Base.Theme.AroundPharmacy" />
 </resources>

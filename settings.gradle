@@ -19,5 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Medicine-App"
+rootProject.name = "AroundPharmacy"
 include ':app'
+include ':firebaseAuth'

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "152218298505",
+    "project_id": "aroundpharmacy",
+    "storage_bucket": "aroundpharmacy.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152218298505:android:5283cc0e7ad46d8ed73e58",
+        "android_client_info": {
+          "package_name": "com.aroundpharmacy.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_PCP5veubst0a31u-4w5SblV2nSasokE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
