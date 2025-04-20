@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.aroundpharmacy.app.R
@@ -13,10 +14,12 @@ import com.aroundpharmacy.app.databinding.FragmentLoginBinding
 import com.aroundpharmacy.app.databinding.FragmentSignupBinding
 import com.aroundpharmacy.app.view.BaseFragment
 import com.aroundpharmacy.app.viewModel.AuthViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SignUpFragment : Fragment() {
     private lateinit var binding: FragmentSignupBinding
-    private lateinit var authViewModel: AuthViewModel
+    private val authViewModel: AuthViewModel by viewModels()
     private lateinit var name: String
     private lateinit var email: String
     private lateinit var pw: String
@@ -28,7 +31,6 @@ class SignUpFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSignupBinding.inflate(inflater, container, false)
-        authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
         return binding.root
     }
 
@@ -36,17 +38,17 @@ class SignUpFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.apply {
             btnSignup.setOnClickListener {
-                if (editEmail.toString().isEmpty() ||
-                    editPw.toString().isEmpty() ||
-                    editName.toString().isEmpty() ||
-                    editPwCheck.toString().isEmpty()
+                if (editEmail.text.toString().isEmpty() ||
+                    editPw.text.toString().isEmpty() ||
+                    editName.text.toString().isEmpty() ||
+                    editPwCheck.text.toString().isEmpty()
                 ) {
                     Toast.makeText(requireContext(), "모든 항목을 입력하세요!", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
-                name = editName.toString()
-                email = editEmail.toString()
-                if (editPw.toString() == editPwCheck.toString()) pw = editPwCheck.toString()
+                name = editName.text.toString()
+                email = editEmail.text.toString()
+                if (editPw.text.toString() == editPwCheck.text.toString()) pw = editPwCheck.text.toString()
                 else {
                     Toast.makeText(requireContext(), "입력하신 정보가 올바르지 않습니다.", Toast.LENGTH_SHORT)
                         .show()
@@ -69,6 +71,9 @@ class SignUpFragment : Fragment() {
                     .show()
                 findNavController().navigate(R.id.action_signUpFragment_to_loginFragment)
 
+            }else{
+                Toast.makeText(requireContext(), "이메일과 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT)
+                    .show()
             }
 
         }

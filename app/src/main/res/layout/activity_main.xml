@@ -15,19 +15,22 @@
         tools:context=".view.main.MainActivity">
 
         <TextView
-            android:layout_marginTop="50dp"
             android:id="@+id/txt_logo"
+            style="@style/txt_big"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
             android:text="Around Pharmacy"
-            style="@style/txt_big"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+
+
         <androidx.fragment.app.FragmentContainerView
             android:id="@+id/navigation_main"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:defaultNavHost="true"

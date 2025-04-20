@@ -1,104 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_home"
-    app:startDestination="@id/aroundPharmacyFragment"
-    >
+    app:startDestination="@id/aroundPharmacyFragment">
 
     <fragment
         android:id="@+id/aroundPharmacyFragment"
         android:name="com.aroundpharmacy.app.view.home.AroundPharmacyFragment"
-        android:label="AroundPharmacyFragment"
-        tools:layout="@layout/fragment_around_pharmacy">
-
-
-
-        <action
-            android:id="@+id/action_aroundPharmacyFragment_to_mypageFragment"
-            app:destination="@id/mypageFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:launchSingleTop="true"
-            app:popEnterAnim="@anim/fragment_close_enter"
-            app:popExitAnim="@anim/fragment_close_exit"
-            app:popUpTo="@id/mypageFragment"
-            app:popUpToInclusive="true"
-            />
-        <action
-            android:id="@+id/action_aroundPharmacyFragment_to_pharmacySearchFragment"
-            app:destination="@id/pharmacySearchFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:launchSingleTop="true"
-            app:popEnterAnim="@anim/fragment_close_enter"
-            app:popExitAnim="@anim/fragment_close_exit"
-            app:popUpTo="@id/pharmacySearchFragment"
-            app:popUpToInclusive="true"
-            />
-
-
-    </fragment>
-
+        android:label="약국 찾기" />
 
     <fragment
         android:id="@+id/pharmacySearchFragment"
         android:name="com.aroundpharmacy.app.view.home.PharmacySearchFragment"
-        android:label="PharmacySearchFragment"
-        tools:layout="@layout/fragment_pharmacy_search">
-
-
-        <action
-            android:id="@+id/action_pharmacySearchFragment_to_mypageFragment"
-            app:destination="@id/mypageFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:launchSingleTop="true"
-            app:popEnterAnim="@anim/fragment_close_enter"
-            app:popExitAnim="@anim/fragment_close_exit"
-            app:popUpTo="@id/mypageFragment"
-            app:popUpToInclusive="true"
-            />
-        <action
-            android:id="@+id/action_pharmacySearchFragment_to_aroundPharmacyFragment"
-            app:destination="@id/aroundPharmacyFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:launchSingleTop="true"
-            app:popEnterAnim="@anim/fragment_close_enter"
-            app:popExitAnim="@anim/fragment_close_exit"
-            app:popUpTo="@id/aroundPharmacyFragment"
-            app:popUpToInclusive="true"
-            />
-    </fragment>
+        android:label="약 검색" />
 
     <fragment
         android:id="@+id/mypageFragment"
-        android:name="com.aroundpharmacy.app.view.main.MypageFragment"
-        android:label="MypageFragment"
-        tools:layout="@layout/fragment_mypage">
-
-        <action
-            android:id="@+id/action_mypageFragment_to_pharmacySearchFragment"
-            app:destination="@id/pharmacySearchFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:launchSingleTop="true"
-            app:popEnterAnim="@anim/fragment_close_enter"
-            app:popExitAnim="@anim/fragment_close_exit"
-            app:popUpTo="@id/pharmacySearchFragment"
-            app:popUpToInclusive="true"
-            />
-        <action
-            android:id="@+id/action_mypageFragment_to_aroundPharmacyFragment"
-            app:destination="@id/aroundPharmacyFragment"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:launchSingleTop="true"
-            app:popEnterAnim="@anim/fragment_close_enter"
-            app:popExitAnim="@anim/fragment_close_exit"
-            app:popUpTo="@id/aroundPharmacyFragment"
-            app:popUpToInclusive="true"
-            />
-    </fragment>
+        android:name="com.aroundpharmacy.app.view.home.MypageFragment"
+        android:label="마이페이지" />
 </navigation>
+<!--<navigation xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:id="@+id/nav_home"-->
+<!--    app:startDestination="@id/aroundPharmacyFragment"-->
+<!--    >-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/aroundPharmacyFragment"-->
+<!--        android:name="com.aroundpharmacy.app.view.home.AroundPharmacyFragment"-->
+<!--        android:label="AroundPharmacyFragment"-->
+<!--        tools:layout="@layout/fragment_around_pharmacy">-->
+
+
+
+<!--        <action-->
+<!--            android:id="@+id/action_aroundPharmacyFragment_to_mypageFragment"-->
+<!--            app:destination="@id/mypageFragment"-->
+<!--            app:enterAnim="@anim/fragment_fade_enter"-->
+<!--            app:exitAnim="@anim/fragment_fade_exit"-->
+<!--            app:launchSingleTop="true"-->
+<!--            app:popEnterAnim="@anim/fragment_close_enter"-->
+<!--            app:popExitAnim="@anim/fragment_close_exit"-->
+<!--            app:popUpTo="@id/mypageFragment"-->
+<!--            app:popUpToInclusive="true"-->
+<!--            />-->
+<!--        <action-->
+<!--            android:id="@+id/action_aroundPharmacyFragment_to_pharmacySearchFragment"-->
+<!--            app:destination="@id/pharmacySearchFragment"-->
+<!--            app:enterAnim="@anim/fragment_fade_enter"-->
+<!--            app:exitAnim="@anim/fragment_fade_exit"-->
+<!--            app:launchSingleTop="true"-->
+<!--            app:popEnterAnim="@anim/fragment_close_enter"-->
+<!--            app:popExitAnim="@anim/fragment_close_exit"-->
+<!--            app:popUpTo="@id/pharmacySearchFragment"-->
+<!--            app:popUpToInclusive="true"-->
+<!--            />-->
+
+
+<!--    </fragment>-->
+
+
+<!--    <fragment-->
+<!--        android:id="@+id/pharmacySearchFragment"-->
+<!--        android:name="com.aroundpharmacy.app.view.home.PharmacySearchFragment"-->
+<!--        android:label="PharmacySearchFragment"-->
+<!--        tools:layout="@layout/fragment_pharmacy_search">-->
+
+
+<!--        <action-->
+<!--            android:id="@+id/action_pharmacySearchFragment_to_mypageFragment"-->
+<!--            app:destination="@id/mypageFragment"-->
+<!--            app:enterAnim="@anim/fragment_fade_enter"-->
+<!--            app:exitAnim="@anim/fragment_fade_exit"-->
+<!--            app:launchSingleTop="true"-->
+<!--            app:popEnterAnim="@anim/fragment_close_enter"-->
+<!--            app:popExitAnim="@anim/fragment_close_exit"-->
+<!--            app:popUpTo="@id/mypageFragment"-->
+<!--            app:popUpToInclusive="true"-->
+<!--            />-->
+<!--        <action-->
+<!--            android:id="@+id/action_pharmacySearchFragment_to_aroundPharmacyFragment"-->
+<!--            app:destination="@id/aroundPharmacyFragment"-->
+<!--            app:enterAnim="@anim/fragment_fade_enter"-->
+<!--            app:exitAnim="@anim/fragment_fade_exit"-->
+<!--            app:launchSingleTop="true"-->
+<!--            app:popEnterAnim="@anim/fragment_close_enter"-->
+<!--            app:popExitAnim="@anim/fragment_close_exit"-->
+<!--            app:popUpTo="@id/aroundPharmacyFragment"-->
+<!--            app:popUpToInclusive="true"-->
+<!--            />-->
+<!--    </fragment>-->
+
+<!--    <fragment-->
+<!--        android:id="@+id/mypageFragment"-->
+<!--        android:name="com.aroundpharmacy.app.view.main.MypageFragment"-->
+<!--        android:label="MypageFragment"-->
+<!--        tools:layout="@layout/fragment_mypage">-->
+
+<!--        <action-->
+<!--            android:id="@+id/action_mypageFragment_to_pharmacySearchFragment"-->
+<!--            app:destination="@id/pharmacySearchFragment"-->
+<!--            app:enterAnim="@anim/fragment_fade_enter"-->
+<!--            app:exitAnim="@anim/fragment_fade_exit"-->
+<!--            app:launchSingleTop="true"-->
+<!--            app:popEnterAnim="@anim/fragment_close_enter"-->
+<!--            app:popExitAnim="@anim/fragment_close_exit"-->
+<!--            app:popUpTo="@id/pharmacySearchFragment"-->
+<!--            app:popUpToInclusive="true"-->
+<!--            />-->
+<!--        <action-->
+<!--            android:id="@+id/action_mypageFragment_to_aroundPharmacyFragment"-->
+<!--            app:destination="@id/aroundPharmacyFragment"-->
+<!--            app:enterAnim="@anim/fragment_fade_enter"-->
+<!--            app:exitAnim="@anim/fragment_fade_exit"-->
+<!--            app:launchSingleTop="true"-->
+<!--            app:popEnterAnim="@anim/fragment_close_enter"-->
+<!--            app:popExitAnim="@anim/fragment_close_exit"-->
+<!--            app:popUpTo="@id/aroundPharmacyFragment"-->
+<!--            app:popUpToInclusive="true"-->
+<!--            />-->
+<!--    </fragment>-->
+<!--</navigation>-->

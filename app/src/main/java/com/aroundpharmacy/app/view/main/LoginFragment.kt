@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.aroundpharmacy.app.R
@@ -13,11 +14,13 @@ import com.aroundpharmacy.app.databinding.FragmentLoginBinding
 import com.aroundpharmacy.app.view.BaseFragment
 import com.aroundpharmacy.app.view.home.HomeActivity
 import com.aroundpharmacy.app.viewModel.AuthViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginFragment( ) : BaseFragment(){
     override  var isBackAvailable: Boolean = false
     private lateinit var binding : FragmentLoginBinding
-    private lateinit var authViewModel : AuthViewModel
+    private val authViewModel: AuthViewModel by viewModels()
     private lateinit var id : String
     private lateinit var pw : String
 
@@ -28,7 +31,6 @@ class LoginFragment( ) : BaseFragment(){
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
-        authViewModel = ViewModelProvider(this)[AuthViewModel::class.java]
 
         return binding.root
     }
@@ -38,8 +40,8 @@ class LoginFragment( ) : BaseFragment(){
 
 
         binding.btnLogin.setOnClickListener {
-            id = binding.editEmail.toString()
-            pw = binding.editPw.toString()
+            id = binding.editEmail.text.toString()
+            pw = binding.editPw.text.toString()
 
             authViewModel.login(id,pw)
         }
