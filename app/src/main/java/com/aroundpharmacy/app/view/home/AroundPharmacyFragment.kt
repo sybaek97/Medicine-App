@@ -1,6 +1,7 @@
 package com.aroundpharmacy.app.view.home
 
 import android.Manifest
+import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -9,9 +10,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import com.aroundpharmacy.app.R
 import com.aroundpharmacy.app.databinding.FragmentAroundPharmacyBinding
+import com.aroundpharmacy.app.model.PharmacyDto
 import com.aroundpharmacy.app.view.BaseFragment
 import com.aroundpharmacy.app.viewModel.MapViewModel
 import com.google.android.gms.location.FusedLocationProviderClient
@@ -77,30 +80,25 @@ class AroundPharmacyFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         myCurrentLocationBtn = binding.btnMyLocation
-        myCurrentLocationBtn.isEnabled = false         // 초기 비활성
+        myCurrentLocationBtn.isEnabled = false
         myCurrentLocationBtn.alpha    = 0.4f
         myCurrentLocationBtn.setOnClickListener {
-            myCurrentLocationBtn.isEnabled = false         // 초기 비활성
+            myCurrentLocationBtn.isEnabled = false
             myCurrentLocationBtn.alpha    = 0.4f
             mapViewModel.fetchCurrentLocation()
 
         }
-
-
-
         mapViewModel.requestLocationPermission.observe(viewLifecycleOwner) { shouldRequest ->
             if (shouldRequest) {
                 requestPermissionLauncher.launch(permissionList)
             }
         }
 
-        // 결과 처리
+        // 결과 처리 대략적인 위치 or 정확한 위치 허용시 fetchCurrentLocation실행
         mapViewModel.isPermissionGranted.observe(viewLifecycleOwner) { granted ->
             when {
                 Manifest.permission.ACCESS_COARSE_LOCATION in granted ||Manifest.permission.ACCESS_FINE_LOCATION in granted -> {
                     mapViewModel.fetchCurrentLocation()
-
-
                 }
 
                 else -> {
@@ -119,27 +117,55 @@ class AroundPharmacyFragment : BaseFragment() {
         mapView.start(object : MapLifeCycleCallback() {override fun onMapDestroy() {}override fun onMapError(error: Exception) {} }, object : KakaoMapReadyCallback() {
 
             override fun onMapReady(map: KakaoMap) {
+
+
                 kakaoMap = map
                 labelLayer = kakaoMap.labelManager!!.layer
                 val pos = kakaoMap.cameraPosition!!.position
+                mapViewModel.fetchNearby(lat, lng)
 
-                createLabels(pos)
+
                 kakaoMap.setOnCameraMoveStartListener { _, gestureType ->
                     if (gestureType != GestureType.Unknown) {
                         myCurrentLocationBtn.isEnabled = true
                         myCurrentLocationBtn.alpha = 1f
                     }
                 }
-            }
 
+                kakaoMap.setOnCameraMoveEndListener { _, camPosition, _ ->
+                    if (binding.btnRefreshLocation.visibility == View.GONE) {
+                        binding.btnRefreshLocation.visibility = View.VISIBLE
+                    }
+                }
+
+                binding.btnRefreshLocation.setOnClickListener {
+                    val center = kakaoMap.cameraPosition!!.position
+                    mapViewModel.fetchNearby(center.latitude, center.longitude)
+                    binding.btnRefreshLocation.visibility = View.GONE
+                }
+
+                //약국 리스트에 생성
+                mapViewModel.pharmacies.observe(viewLifecycleOwner) { list ->
+                    labelLayer?.removeAll()
+                    createLabels(pos)
+                    createPharmacyLabels(list)
+                }
+                kakaoMap.setOnLabelClickListener { _, _, label ->
+                    val pharmacy = label.tag as? PharmacyDto
+                    pharmacy?.let {
+                        Log.d("PharmacyClick",
+                            "Clicked: ${it.name} @ ${it.address} (lat=${it.lat}, lon=${it.lon})")
+                    }
+                    true
+                }
+            }
             override fun getPosition(): LatLng {
-                return LatLng.from(lat, lng);
-            }
 
-            override fun getZoomLevel(): Int {
-                return 15
-            }
 
+                return LatLng.from(lat, lng)
+
+            }
+            override fun getZoomLevel(): Int { return 15 }
         })
 
     }
@@ -151,6 +177,22 @@ class AroundPharmacyFragment : BaseFragment() {
         )
         centerLabel?.addShareTransform(animationPolygon)
     }
+    private fun createPharmacyLabels(list: List<PharmacyDto>){
+        list.forEach { pharmacy ->
+            Log.d("Pharmacy", "${pharmacy.name} @ ${pharmacy.address}")
+            val position = LatLng.from(pharmacy.lat, pharmacy.lon)
+            val markerBitmap = BitmapFactory.decodeResource(
+                resources,
+                R.drawable.ic_pharmacy_pin // drawable에 준비한 핀 아이콘
+            )
+            val style = LabelStyle.from(markerBitmap)
+            val options = LabelOptions.from(position)
+                .setStyles(style)
+                .setClickable(true)       // 클릭 허용
+                .setTag(pharmacy)
+            labelLayer?.addLabel(options)
 
+        }
+    }
 
 }

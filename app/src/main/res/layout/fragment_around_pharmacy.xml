@@ -49,10 +49,26 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/search_box" />
-
+        <Button
+            app:layout_constraintTop_toTopOf="@id/kakao_map"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/btn_refresh_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="여기서 재검색하기"
+            android:layout_gravity="top|center_horizontal"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="?attr/colorPrimary"
+            android:textColor="@android:color/white"
+            android:paddingVertical="8dp"
+            android:paddingHorizontal="16dp"
+            android:visibility="gone"
+            android:elevation="4dp"/>
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_my_location"
             android:layout_width="wrap_content"
+
             android:layout_height="wrap_content"
             android:layout_margin="40dp"
             app:layout_constraintBottom_toBottomOf="parent"

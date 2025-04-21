@@ -17,8 +17,9 @@
         android:theme="@style/Theme.AroundPharmacy"
         tools:targetApi="31">
         <meta-data
-            android:name="com.kakao.vectormap.KAKAO_MAP_KEY"
-            android:value="KAKAO_MAP_KEY"/>
+            android:name="com.kakao.vectormap.APP_KEY"
+            android:value="@string/KAKAO_API_KEY" />
+
 
         <activity
             android:name=".view.main.MainActivity"
