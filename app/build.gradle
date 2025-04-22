@@ -19,14 +19,11 @@ android {
         targetSdk 35
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "KAKAO_API_KEY", "\"${localProperties.getProperty("KAKAO_API_KEY")}\"")
         buildConfigField("String", "KAKAO_REST_API_KEY", "\"${localProperties.getProperty("KAKAO_REST_API_KEY")}\"")
-        buildConfigField("String", "DATA_API_KEY","\"he8/Bz7GlSSATuiGW0jknTLwv0KNhHArufMs1tiSewzCFWqzK1RX+duVR2wCvlDoZu2/ZYHlzV3wYrk91i5QHg==\"")
-        resValue "string",
-                "KAKAO_API_KEY",
-                localProperties.getProperty("KAKAO_API_KEY")
+        buildConfigField("String", "DATA_API_KEY","\"${localProperties.getProperty("DATA_REST_API_KEY")}\"")
+        resValue "string","KAKAO_API_KEY",localProperties.getProperty("KAKAO_API_KEY")
 
     }
 

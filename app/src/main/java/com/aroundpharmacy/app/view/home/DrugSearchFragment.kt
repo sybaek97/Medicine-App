@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
@@ -22,7 +23,6 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.net.URLEncoder
 
 class DrugSearchFragment : BaseFragment(){
     override  var isBackAvailable: Boolean = false
@@ -47,7 +47,7 @@ class DrugSearchFragment : BaseFragment(){
             .addConverterFactory(GsonConverterFactory.create()).client(client)
             .build()
     }
-    private val service: DrugPrdtPrmsnInfoService by lazy {
+    private val drugPrdtPrmsnInfoservice: DrugPrdtPrmsnInfoService by lazy {
         retrofit.create(DrugPrdtPrmsnInfoService::class.java)
     }
 
@@ -66,7 +66,42 @@ class DrugSearchFragment : BaseFragment(){
         super.onViewCreated(view, savedInstanceState)
         progressBar =binding.progressBar
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        adapter = DrugAdapter()
+        adapter = DrugAdapter(){ itemSeq ->
+            requireActivity().window.addFlags(
+                WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+            )
+            lifecycleScope.launch(Dispatchers.IO) {
+
+                try {
+                    val resp = drugPrdtPrmsnInfoservice.getMedicineList(
+                        serviceKey = BuildConfig.DATA_API_KEY,
+                        pageNo = 1,
+                        numOfRows = 1,
+                        itemSeq = itemSeq
+                    )
+
+                    withContext(Dispatchers.Main) {
+                        // 2) 터치 재활성화
+                        requireActivity().window.clearFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+                        )
+
+                        // 3) 바텀 시트 표시
+                        val bottomSheet = DrugBottomSheet(resp)
+                        bottomSheet.show(parentFragmentManager, "MedicineDetail")
+                    }
+                } catch (e: Exception) {
+                    withContext(Dispatchers.Main) {
+                        // 에러에도 터치는 풀어줘야 합니다
+                        requireActivity().window.clearFlags(
+                            WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+                        )
+                        Toast.makeText(requireContext(), "로드 실패: ${e.message}", Toast.LENGTH_SHORT)
+                            .show()
+                    }
+                }
+            }
+        }
         binding.recyclerView.adapter = adapter
         binding.recyclerView.addOnScrollListener(object: RecyclerView.OnScrollListener(){
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -80,7 +115,11 @@ class DrugSearchFragment : BaseFragment(){
             }
         })
 
-        performSearch(keyword = null)  // 전체 리스트
+        performSearch(keyword = null)
+        binding.btnKeyword.setOnClickListener {
+            val keyword = binding.editKeyword.text.toString()
+            performSearch(keyword = keyword)
+        }
     }
     private fun performSearch(keyword: String?) {
         currentKeyword = keyword
@@ -95,33 +134,26 @@ class DrugSearchFragment : BaseFragment(){
 
         lifecycleScope.launch(Dispatchers.IO) {
             try {
-                val resp = service.getMedicineList(
+                val resp = drugPrdtPrmsnInfoservice.getDrugList(
                     serviceKey = BuildConfig.DATA_API_KEY,
                     pageNo     = currentPage,
                     numOfRows  = pageSize,
                     itemName   = currentKeyword
                 )
 
+                val items = resp.body.items
 
-//                if (resp.isSuccessful) {
-//                    val rawJson = resp.body()?.string() ?: "빈 바디"
-//                    Log.d("RawJSON", "$rawJson")             // 원시 JSON 전체 출력
-//                } else {
-//                    Log.e("RawJSON", "HTTP ${resp.code()}")
-//                }
-//                val items = resp.body.items.itemList
-//
-//                withContext(Dispatchers.Main) {
-//                    adapter.addItems(items)
-//                    isLoading = false
-//                    progressBar.visibility = View.GONE
-//
-//                    if (items.size < pageSize) {
-//                        isLastPage = true
-//                    } else {
-//                        currentPage++
-//                    }
-//                }
+                withContext(Dispatchers.Main) {
+                    adapter.addItems(items)
+                    isLoading = false
+                    progressBar.visibility = View.GONE
+
+                    if (items.size < pageSize) {
+                        isLastPage = true
+                    } else {
+                        currentPage++
+                    }
+                }
             } catch (e: Exception) {
                 withContext(Dispatchers.Main) {
                     isLoading = false

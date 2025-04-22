@@ -1,0 +1,837 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="300dp"
+    android:layout_width="match_parent"
+    android:orientation="vertical">
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/btn_close"
+        android:layout_width="30dp"
+        android:layout_gravity="end"
+        android:layout_height="30dp"
+        android:layout_marginVertical="15dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/baseline_highlight_off_24"
+        />
+    <ScrollView
+        android:paddingHorizontal="10dp"
+        android:id="@+id/scroll_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/txt_middle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="의약품 이름 : "
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/item_name"
+                        style="@style/txt_middle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:text="가스디알정50밀리그램(디메크로틴산마그네슘)"
+                        android:textSize="15sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/img_drug"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="10dp" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="제조/수입 업체명 : " />
+
+                <TextView
+                    android:id="@+id/entp_name"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="일동제약(주)" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="의약품의 외형 설명 : " />
+
+                <TextView
+                    android:id="@+id/chart"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="녹색의 원형 필름코팅정" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="약의 형태 : " />
+
+                <TextView
+                    android:id="@+id/drug_shape"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="약 앞면에 인쇄된 문자 : " />
+
+                <TextView
+                    android:id="@+id/print_front"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="약 뒷면에 인쇄된 문자 : " />
+
+                <TextView
+                    android:id="@+id/print_back"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="주 색상 : " />
+
+                <TextView
+                    android:id="@+id/color_class1"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="보조 색상 : " />
+
+                <TextView
+                    android:id="@+id/color_class2"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="약 앞면의 분할선 유무 : " />
+
+                <TextView
+                    android:id="@+id/line_front"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="약 뒷면의 분할선 유무 : " />
+
+                <TextView
+                    android:id="@+id/line_back"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="장축 길이 (mm) : " />
+
+                <TextView
+                    android:id="@+id/leng_long"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="단축 길이 (mm) : " />
+
+                <TextView
+                    android:id="@+id/leng_short"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="두께 (mm) : " />
+
+                <TextView
+                    android:id="@+id/thick"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="이미지 등록일 (YYYYMMDD 형식) : " />
+
+                <TextView
+                    android:id="@+id/img_regist_ts"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="의약품 분류 번호 : " />
+
+                <TextView
+                    android:id="@+id/class_no"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="의약품 분류명 (예: 소화기관용약 등) : " />
+
+                <TextView
+                    android:id="@+id/class_name"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="의약품 구분 (전문의약품/일반의약품) : " />
+
+                <TextView
+                    android:id="@+id/etc_otc_name"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="허가일 (YYYYMMDD 형식) : " />
+
+                <TextView
+                    android:id="@+id/item_permit_date"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="제형 (예: 당의정, 캡슐 등) : " />
+
+                <TextView
+                    android:id="@+id/form_code_name"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="앞면 마크 해석 코드 (없으면 비어 있음) : " />
+
+                <TextView
+                    android:id="@+id/mark_code_front_anal"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="뒷면 마크 해석 코드 : " />
+
+                <TextView
+                    android:id="@+id/mark_code_back_anal"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="앞면 마크 이미지 : " />
+
+                <TextView
+                    android:id="@+id/mark_code_front_img"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="뒷면 마크 이미지 : " />
+
+                <TextView
+                    android:id="@+id/mark_code_back_img"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="의약품 영문명 (없을 수도 있음) : " />
+
+                <TextView
+                    android:id="@+id/item_eng_name"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="정보 변경일 : " />
+
+                <TextView
+                    android:id="@+id/change_date"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="앞면 마크 코드 : " />
+
+                <TextView
+                    android:id="@+id/mark_code_front"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="뒷면 마크 코드 : " />
+
+                <TextView
+                    android:id="@+id/mark_code_back"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="건강보험 청구용 EDI 코드 : " />
+
+                <TextView
+                    android:id="@+id/edi_code"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/sub_gray" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                android:paddingVertical="10dp">
+
+                <TextView
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="사업자등록번호 : " />
+
+                <TextView
+                    android:id="@+id/bizrno"
+                    style="@style/txt_middle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="원형" />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+    <TextView
+        android:id="@+id/txt_drug_empty"
+        style="@style/txt_big"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="현재 해당 의약품의 상세 정보를\n제공받을 수 없습니다."
+        android:textAlignment="center"
+        android:textColor="@android:color/darker_gray"
+        android:visibility="visible" />
+</LinearLayout>

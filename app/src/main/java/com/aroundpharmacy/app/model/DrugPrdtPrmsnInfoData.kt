@@ -1,27 +1,28 @@
 package com.aroundpharmacy.app.model
 
 import com.google.gson.annotations.SerializedName
-import retrofit2.http.Header
 
 data class DrugPrdtPrmsnInfoResponse(
-    @SerializedName("header") val header: Header,
-    @SerializedName("body")   val body: Body
+    @SerializedName("header") val header: DrugPrdtPrmsnInfoResponseHeader,
+    @SerializedName("body")   val body: DrugPrdtPrmsnInfoResponseBody
 )
-data class Body(
-    @SerializedName("items")      val items: Items,
+data class DrugPrdtPrmsnInfoResponseHeader(
+    @SerializedName("resultCode") val resultCode: String,
+    @SerializedName("resultMsg")  val resultMsg: String
+)
+
+data class DrugPrdtPrmsnInfoResponseBody(
+    @SerializedName("items")      val items: List<DrugPrdtPrmsnInfoResponseDto>,
     @SerializedName("numOfRows")  val numOfRows: Int,
     @SerializedName("pageNo")     val pageNo: Int,
     @SerializedName("totalCount") val totalCount: Int
-)
-data class Items(
-    @SerializedName("item") val itemList: List<DrugPrdtPrmsnInfoResponseDto>
 )
 
 
 data class DrugPrdtPrmsnInfoResponseDto(
     //업일련번호
-    @SerializedName("ENTP_SEQ")
-    val entpSeq: String,
+    @SerializedName("ITEM_SEQ")
+    val itemSeq: String,
 
     //업체명
     @SerializedName("ENTP_NAME")
@@ -44,7 +45,7 @@ data class DrugPrdtPrmsnInfoResponseDto(
     val productType: String,
 
     //이미지 url
-    @SerializedName("ITEM_INGR_NAME")
+    @SerializedName("BIG_PRDT_IMG_URL")
     val itemIngrName: String,
 
-)
+    )
