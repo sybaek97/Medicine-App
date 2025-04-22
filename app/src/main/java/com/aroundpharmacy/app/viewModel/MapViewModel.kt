@@ -2,6 +2,7 @@ package com.aroundpharmacy.app.viewModel
 
 
 import android.app.Application
+import android.location.Location
 import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -24,7 +25,8 @@ class MapViewModel(application: Application) : AndroidViewModel(application) {
     val currentLocation : LiveData<Pair<Double,Double>> = _currentLocation
     private val _pharmacies = MutableLiveData<List<PharmacyDto>>()
     val pharmacies: LiveData<List<PharmacyDto>> = _pharmacies
-
+    private val _searchPharmacies = MutableLiveData<List<PharmacyDto>>()
+    val searchPharmacies: LiveData<List<PharmacyDto>> = _searchPharmacies
 
     fun onFragmentLoaded() {
         _requestLocationPermission.value = true
@@ -56,4 +58,27 @@ class MapViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    fun searchPharmacies(
+        keyword: String,
+        centerLat: Double,
+        centerLon: Double,
+        radiusKm: Double = 20.0
+    ): List<PharmacyDto> {
+
+        if (keyword.length < 2) return emptyList()
+
+        return _pharmacies.value.orEmpty().filter { p ->
+            p.name.contains(keyword, ignoreCase = true) &&
+                    distanceKm(centerLat, centerLon, p.lat, p.lon) <= radiusKm
+        }
+    }
+
+    private fun distanceKm(
+        lat1: Double, lon1: Double,
+        lat2: Double, lon2: Double
+    ): Double {
+        val results = FloatArray(1)
+        Location.distanceBetween(lat1, lon1, lat2, lon2, results)
+        return results[0] / 1000.0     // m → km
+    }
 }
