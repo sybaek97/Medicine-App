@@ -6,7 +6,7 @@
         android:title="약국 찾기"
         android:icon="@drawable/icon_location" />
     <item
-        android:id="@+id/pharmacySearchFragment"
+        android:id="@+id/drugSearchFragment"
         android:title="약 검색"
         android:icon="@drawable/icon_pharmacy" />
     <item

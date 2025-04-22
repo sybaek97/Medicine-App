@@ -9,8 +9,8 @@
         android:label="약국 찾기" />
 
     <fragment
-        android:id="@+id/pharmacySearchFragment"
-        android:name="com.aroundpharmacy.app.view.home.PharmacySearchFragment"
+        android:id="@+id/drugSearchFragment"
+        android:name="com.aroundpharmacy.app.view.home.DrugSearchFragment"
         android:label="약 검색" />
 
     <fragment

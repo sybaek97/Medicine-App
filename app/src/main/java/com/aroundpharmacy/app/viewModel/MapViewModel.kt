@@ -7,9 +7,8 @@ import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.aroundpharmacy.app.api.RetrofitClient
+import com.aroundpharmacy.app.api.KakaoRetrofitClient
 import com.aroundpharmacy.app.model.PharmacyDto
 import com.google.android.gms.location.LocationServices
 import kotlinx.coroutines.launch
@@ -48,7 +47,7 @@ class MapViewModel(application: Application) : AndroidViewModel(application) {
     fun fetchNearby(lat: Double, lon: Double) {
         viewModelScope.launch {
             try {
-                val resp = RetrofitClient.api
+                val resp = KakaoRetrofitClient.api
                     .searchPlacesByKeyword("약국", lat, lon, 20000)
                 _pharmacies.value = resp.documents
             } catch (e: Exception) {

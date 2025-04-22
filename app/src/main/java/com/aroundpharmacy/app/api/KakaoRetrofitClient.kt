@@ -6,7 +6,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-object RetrofitClient {
+object KakaoRetrofitClient {
     private const val BASE_URL = "https://dapi.kakao.com/"
     private const val API_KEY  = BuildConfig.KAKAO_REST_API_KEY
 

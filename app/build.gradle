@@ -23,6 +23,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "KAKAO_API_KEY", "\"${localProperties.getProperty("KAKAO_API_KEY")}\"")
         buildConfigField("String", "KAKAO_REST_API_KEY", "\"${localProperties.getProperty("KAKAO_REST_API_KEY")}\"")
+        buildConfigField("String", "DATA_API_KEY","\"he8/Bz7GlSSATuiGW0jknTLwv0KNhHArufMs1tiSewzCFWqzK1RX+duVR2wCvlDoZu2/ZYHlzV3wYrk91i5QHg==\"")
         resValue "string",
                 "KAKAO_API_KEY",
                 localProperties.getProperty("KAKAO_API_KEY")
@@ -52,7 +53,9 @@ dependencies {
 
 
     implementation "com.google.android.material:material:1.13.0-alpha10"
-
+    implementation 'com.github.bumptech.glide:glide:4.15.1'
+    kapt 'com.github.bumptech.glide:compiler:4.15.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
 
     implementation 'com.google.android.gms:play-services-location:21.0.1'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.6.4'

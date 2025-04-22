@@ -7,10 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.aroundpharmacy.app.databinding.FragmentMypageBinding
-import com.aroundpharmacy.app.databinding.FragmentPharmacySearchBinding
 import com.aroundpharmacy.app.view.BaseFragment
 import com.aroundpharmacy.app.view.main.MainActivity
 import com.aroundpharmacy.app.viewModel.AuthViewModel
