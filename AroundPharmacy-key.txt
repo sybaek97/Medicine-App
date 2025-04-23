@@ -1,0 +1,4 @@
+AroundPharmacy-key
+key alias : AroundPharmacy
+key store password : AroundPharmacy
+key password : AroundPharmacy
